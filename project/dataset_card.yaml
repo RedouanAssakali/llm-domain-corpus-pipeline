@@ -1,0 +1,51 @@
+# dataset_card.yaml
+title: "Training Corpus (Demo)"
+subtitle: "Multi-source PDF corpus for domain-adaptive continued pretraining"
+version: "0.1.0"
+license: "internal"
+language:
+  - "en"
+domain: "organisational documents"
+
+owners:
+  - name: "Amsterdam University of Applied Sciences"
+    affiliation: "Amsterdam University of Applied Sciences (AUAS)"
+    contact: "your.name@hva.nl"
+
+intended_use:
+  primary: "Domain-adaptive continued pretraining (next-token prediction)."
+  secondary:
+    - "Exploratory analysis of organisational writing style and vocabulary."
+    - "Benchmarking extraction and cleaning recipes on heterogeneous PDFs."
+
+out_of_scope:
+  - "Supervised instruction tuning."
+  - "Safety-critical deployment without additional evaluation."
+
+data_sources:
+  description: "Example PDFs bundled with the repository for reproducible experiments."
+  collection_method: "Provided as tutorial materials."
+
+sensitive_content:
+  pii_expected: true
+  pii_types:
+    - "email"
+    - "phone"
+  mitigation: "Regex-based masking in the privacy-aware and training-ready runs."
+
+preprocessing_notes:
+  - "PDF text extraction may introduce layout artefacts, ordering issues, or missing characters."
+  - "Boilerplate removal is conservative and should be adapted per document type if needed."
+
+evaluation_notes:
+  - "No model performance results are reported in this tutorial."
+  - "Quality is assessed via diagnostics and qualitative spot checks."
+
+citation:
+  recommended_bibtex: |
+    @misc{training_corpus_demo_2026,
+      title        = {Training Corpus (Demo)},
+      author       = {Amsterdam University of Applied Sciences},
+      year         = {2026},
+      howpublished = {Tutorial artifact},
+    }

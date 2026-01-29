@@ -1,0 +1,60 @@
+run_name: privacy
+output_dir: out
+example_pairs: 3
+
+inputs:
+  - source: un_demo
+    doc_type: report
+    paths: "data/raw/report.pdf"
+    type: pdf
+  - source: un_demo
+    doc_type: transcript
+    paths: "data/raw/transcript.pdf"
+    type: pdf
+  - source: un_demo
+    doc_type: letter
+    paths: "data/raw/letter.pdf"
+    type: pdf
+
+normalize:
+  collapse_whitespace: true
+  remove_boilerplate_lines: true
+
+clean:
+  min_doc_chars: 600
+  max_doc_chars: 400000
+  max_nonalpha_ratio: 0.55
+
+pii_mask:
+  enabled: true
+  replacement_format: "[{name}]"
+  patterns:
+    email:
+      enabled: true
+      ignore_case: true
+      regex: "\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b"
+
+    # Only mask phones on likely contact lines (prevents false positives on IDs/ISBNs/street numbers)
+    phone:
+      enabled: true
+      ignore_case: true
+      line_hint_regex: "\\b(phone|tel|telephone|mobile|contact)\\b"
+      regex: "(?<!\\w)(?:\\+\\d{1,3}[\\s\\-().]*)?(?:\\d{1,4}[\\s\\-().]*)?(?:\\d{2,4}[\\s\\-().]*){2,4}\\d{2,4}(?!\\w)"
+
+    iban:
+      enabled: false
+      ignore_case: true
+      line_hint_regex: "\\b(iban)\\b"
+      regex: "\\b[A-Z]{2}\\d{2}[A-Z0-9]{11,30}\\b"
+
+segment:
+  chunk_chars: 2000
+  overlap_chars: 150
+  min_segment_chars: 300
+  max_segment_chars: 5000
+
+dedup:
+  enabled: true
+
+mlx_export:
+  enabled: false

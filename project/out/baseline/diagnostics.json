@@ -1,0 +1,26 @@
+{
+  "run_name": "baseline",
+  "counts": {
+    "documents_ingested": 3,
+    "documents_after_normalize": 3,
+    "documents_after_clean": 3,
+    "segments_before_dedup": 179,
+    "segments_after_dedup": 179
+  },
+  "lengths": {
+    "segment_char_min": 545,
+    "segment_char_max": 2500,
+    "segment_char_avg": 2479.122905027933,
+    "segment_word_min": 85,
+    "segment_word_max": 745,
+    "segment_word_avg": 336.75977653631287
+  },
+  "dedup": {
+    "removed": 0
+  },
+  "pii_masks": {},
+  "examples": {
+    "before_after": []
+  },
+  "config_path": "config_baseline.yaml"
+}

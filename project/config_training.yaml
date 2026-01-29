@@ -1,0 +1,62 @@
+run_name: training
+output_dir: out
+example_pairs: 3
+
+inputs:
+  - source: un_demo
+    doc_type: report
+    paths: "data/raw/report.pdf"
+    type: pdf
+  - source: un_demo
+    doc_type: transcript
+    paths: "data/raw/transcript.pdf"
+    type: pdf
+  - source: un_demo
+    doc_type: letter
+    paths: "data/raw/letter.pdf"
+    type: pdf
+
+normalize:
+  collapse_whitespace: true
+  remove_boilerplate_lines: true
+
+clean:
+  min_doc_chars: 600
+  max_doc_chars: 400000
+  max_nonalpha_ratio: 0.60
+
+pii_mask:
+  enabled: true
+  replacement_format: "[{name}]"
+  patterns:
+    email:
+      enabled: true
+      ignore_case: true
+      regex: "\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b"
+
+    phone:
+      enabled: true
+      ignore_case: true
+      line_hint_regex: "\\b(phone|tel|telephone|mobile|contact)\\b"
+      regex: "(?<!\\w)(?:\\+\\d{1,3}[\\s\\-().]*)?(?:\\d{1,4}[\\s\\-().]*)?(?:\\d{2,4}[\\s\\-().]*){2,4}\\d{2,4}(?!\\w)"
+
+    iban:
+      enabled: false
+      ignore_case: true
+      line_hint_regex: "\\b(iban)\\b"
+      regex: "\\b[A-Z]{2}\\d{2}[A-Z0-9]{11,30}\\b"
+
+segment:
+  chunk_chars: 1600
+  overlap_chars: 200
+  min_segment_chars: 250
+  max_segment_chars: 2500
+
+dedup:
+  enabled: true
+
+mlx_export:
+  enabled: true
+  dir: data/mlx
+  train_frac: 0.9
+  seed: 42

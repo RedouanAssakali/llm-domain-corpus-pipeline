@@ -1,0 +1,52 @@
+{
+  "run_name": "privacy",
+  "counts": {
+    "documents_ingested": 3,
+    "documents_after_normalize": 3,
+    "documents_after_clean": 3,
+    "segments_before_dedup": 222,
+    "segments_after_dedup": 222
+  },
+  "lengths": {
+    "segment_char_min": 330,
+    "segment_char_max": 2000,
+    "segment_char_avg": 1988.0045045045044,
+    "segment_word_min": 53,
+    "segment_word_max": 626,
+    "segment_word_avg": 270.54954954954957
+  },
+  "dedup": {
+    "removed": 0
+  },
+  "pii_masks": {
+    "email": 2,
+    "phone": 1,
+    "iban": 0
+  },
+  "examples": {
+    "before_after": [
+      {
+        "doc_id": "31d2b69fa844",
+        "doc_type": "report",
+        "source": "un_demo",
+        "before": "A New Policy Consensus to \nAccelerate Social Progress\nWORLD SOCIAL REPORT 2025\nii\nWORLD SOCIAL REPORT 2025 A NEW POLICY CONSENSUS TO ACCELERATE SOCIAL PROGRESS\nDEPARTMENT OF ECONOMIC AND SOCIAL AFFAIRS \nThe Department of Economic and Social Affairs of the United Nations Secretariat is a vital \ninterface between global policies in the economic, social and environmental spheres and national action. The Department works in three main interlinked areas: (i) it compiles, generates \nand analyses a wide range of economic, social and environmental data and information on \nwhich States Members of the United Nations draw to review common problems and to take \nstock of policy options; (ii) it facilitat",
+        "after": "A New Policy Consensus to \nAccelerate Social Progress\nWORLD SOCIAL REPORT 2025\nii\nWORLD SOCIAL REPORT 2025 A NEW POLICY CONSENSUS TO ACCELERATE SOCIAL PROGRESS\nDEPARTMENT OF ECONOMIC AND SOCIAL AFFAIRS \nThe Department of Economic and Social Affairs of the United Nations Secretariat is a vital \ninterface between global policies in the economic, social and environmental spheres and national action. The Department works in three main interlinked areas: (i) it compiles, generates \nand analyses a wide range of economic, social and environmental data and information on \nwhich States Members of the United Nations draw to review common problems and to take \nstock of policy options; (ii) it facilitat"
+      },
+      {
+        "doc_id": "cc64e95381c9",
+        "doc_type": "transcript",
+        "source": "un_demo",
+        "before": "Accessible document Please recycle \nThis record contains the text of speeches delivered in English and of the translation of speeches \ndelivered in other languages. The final text will be printed in the Official Records of the Security \nCouncil. Corrections should be submitted to the original languages only. They should be \nincorporated in a copy of the record and sent under the signature of a member of the delegation co \nncerned to the Chief of the Verbatim Reporting Service, room AB-0928 (verbatimrecords@un.org). \nCorrected records will be reissued electronically on the Official Document System of \nthe United Nations (http://documents.un.org).\n25-29393 (E)\n*2529393*\nUnited Nations S/ PV.10",
+        "after": "Accessible document Please recycle \nThis record contains the text of speeches delivered in English and of the translation of speeches \ndelivered in other languages. The final text will be printed in the Official Records of the Security \nCouncil. Corrections should be submitted to the original languages only. They should be \nincorporated in a copy of the record and sent under the signature of a member of the delegation co \nncerned to the Chief of the Verbatim Reporting Service, room AB-0928 ([EMAIL]). \nCorrected records will be reissued electronically on the Official Document System of \nthe United Nations (http://documents.un.org).\n25-29393 (E)\n*2529393*\nUnited Nations S/ PV.10 031*\nSecurity "
+      },
+      {
+        "doc_id": "fe32cb968037",
+        "doc_type": "letter",
+        "source": "un_demo",
+        "before": "Redouan Assakali\nScience Park 123\n1098 XG Amsterdam\nThe Netherlands\nAmsterdam, 28 January 2026\nThis letter is provided as a sample document for a coursework tutorial. Contact details are fictitious.\nPublications Team\nUN Department of Economic and Social Affairs (UN DESA)\nSubject: Request for clarification and permission to cite UN report content\n(coursework)\nDear Publications Team,\nMy name is Redouan Assakali and I am a student in Amsterdam working on a coursework\ntutorial about building clean text corpora from public UN documents for small-scale LLM\nfine-tuning.\nI plan to use short excerpts from a recent UN DESA report as part of a reproducible\ndemonstration dataset (only a small number of ",
+        "after": "Redouan Assakali\nScience Park 123\n1098 XG Amsterdam\nThe Netherlands\nAmsterdam, 28 January 2026\nThis letter is provided as a sample document for a coursework tutorial. Contact details are fictitious.\nPublications Team\nUN Department of Economic and Social Affairs (UN DESA)\nSubject: Request for clarification and permission to cite UN report content\n(coursework)\nDear Publications Team,\nMy name is Redouan Assakali and I am a student in Amsterdam working on a coursework\ntutorial about building clean text corpora from public UN documents for small-scale LLM\nfine-tuning.\nI plan to use short excerpts from a recent UN DESA report as part of a reproducible\ndemonstration dataset (only a small number of "
+      }
+    ]
+  },
+  "config_path": "config_privacy.yaml"
+}

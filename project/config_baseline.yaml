@@ -1,0 +1,43 @@
+run_name: baseline
+output_dir: out
+example_pairs: 3
+
+inputs:
+  - source: un_demo
+    doc_type: report
+    paths: "data/raw/report.pdf"
+    type: pdf
+  - source: un_demo
+    doc_type: transcript
+    paths: "data/raw/transcript.pdf"
+    type: pdf
+  - source: un_demo
+    doc_type: letter
+    paths: "data/raw/letter.pdf"
+    type: pdf
+
+normalize:
+  collapse_whitespace: true
+  remove_boilerplate_lines: true
+
+clean:
+  min_doc_chars: 600
+  max_doc_chars: 400000
+  max_nonalpha_ratio: 0.65
+
+pii_mask:
+  enabled: false
+  replacement_format: "[{name}]"
+  patterns: {}   # baseline = off anyway
+
+segment:
+  chunk_chars: 2500
+  overlap_chars: 200
+  min_segment_chars: 250
+  max_segment_chars: 6000
+
+dedup:
+  enabled: true
+
+mlx_export:
+  enabled: false
